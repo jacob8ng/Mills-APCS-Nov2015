@@ -40,10 +40,12 @@ public class ProcessingNumbers{
             int next = console.nextInt();
             if(next%2==0){
                 summation+=next;
-                if(maxEven==0){
-                    maxEven+=summation;
+                if(next!=0){
+                    if(maxEven==0){
+                        maxEven+=summation;
+                    }
                 }
-                maxEven = Math.max(maxEven, next);
+                    maxEven = Math.max(maxEven, next);
             }
             minimum = Math.min(minimum, next);
             maximum = Math.max(maximum, next);
