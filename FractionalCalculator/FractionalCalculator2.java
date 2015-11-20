@@ -29,7 +29,7 @@ public class FractionalCalculator2{
         String whole = whole1(a);
         String num = num1(a);
         String denom = denom1(a);
-        return "whole: "+whole+" numerator: "+num+" denominator: "+denom;
+        return "whole:"+whole+" numerator:"+num+" denominator:"+denom;
     }
     public static String whole1(String a){
         int x = a.indexOf("_");
@@ -70,7 +70,7 @@ public class FractionalCalculator2{
         String whole = whole2(a);
         String num = num2(a);
         String denom = denom2(a);
-        return "whole: "+whole+" numerator: "+num+" denominator: "+denom;
+        return "whole:"+whole+" numerator:"+num+" denominator:"+denom;
     }
     public static String whole2(String a){
         int x = a.indexOf("_");
