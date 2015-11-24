@@ -93,6 +93,8 @@ public class FractionalCalculator3{
         int whole2 = w(operand2whole);
         int num2 = n(operand2num);
         int denom2 = d(operand2denom);
+        double number1 = whole1+(num1/denom1);
+        double number2 = whole2+(num2/denom2);
         if(operator.equals("+")){
             return add(whole1, num1, denom1, whole2, num2, denom2);
         }else if(operator.equals("-")){
@@ -104,22 +106,13 @@ public class FractionalCalculator3{
         }
     }
     public static int w(String whole){
-        int index = 0;
-        while(index<whole.length()){
-            
-        }
+        return Integer.parseInt(whole);
     }
     public static int n(String num){
-        int index = 0;
-        while(index<num.length()){
-            
-        }
+        return Integer.parseInt(num);
     }
     public static int d(String denom){
-        int index = 0;
-        while(index<denom.length()){
-            
-        }
+        return Integer.parseInt(denom);
     }
     public static String add(int whole1, int num1, int denom1, int whole2, int num2, int denom2){
         
