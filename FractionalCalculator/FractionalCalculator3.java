@@ -75,15 +75,15 @@ public class FractionalCalculator3{
         return x.substring((x.indexOf(" ")+1),(x.indexOf(" ")+2));
     }
     public static String operand2whole(String x){
-        String a = x.substring(0,x.indexOf(" "));
+        String a = x.substring((x.indexOf(" ")+3),x.length());
         return whole(a);
     }
     public static String operand2num(String x){
-        String a = x.substring(0,x.indexOf(" "));
+        String a = x.substring((x.indexOf(" ")+3),x.length());
         return num(a);
     }
     public static String operand2denom(String x){
-        String a = x.substring(0,x.indexOf(" "));
+        String a = x.substring((x.indexOf(" ")+3),x.length());
         return denom(a);
     }
     public static String solve(String operand1whole, String operand1num, String operand1denom, String operator, String operand2whole, String operand2num, String operand2denom){
@@ -93,16 +93,16 @@ public class FractionalCalculator3{
         int whole2 = w(operand2whole);
         int num2 = n(operand2num);
         int denom2 = d(operand2denom);
-        double number1 = whole1+(num1/denom1);
-        double number2 = whole2+(num2/denom2);
+        int numerator1 = (whole1*denom1)+num1;
+        int numerator2 = (whole2*denom2)+num2;
         if(operator.equals("+")){
-            return add(whole1, num1, denom1, whole2, num2, denom2);
+            return add(numerator1, denom1, numerator2, denom2);
         }else if(operator.equals("-")){
-            return subtract(whole1, num1, denom1, whole2, num2, denom2);
+            return add(numerator1, denom1, (-1*numerator2), denom2);
         }else if(operator.equals("*")){
-            return multiply(whole1, num1, denom1, whole2, num2, denom2);
+            return multiply(numerator1, denom1, numerator2, denom2);
         }else{
-            return divide(whole1, num1, denom1, whole2, num2, denom2);
+            return multiply(numerator1, denom1, denom2, numerator2);
         }
     }
     public static int w(String whole){
@@ -114,16 +114,18 @@ public class FractionalCalculator3{
     public static int d(String denom){
         return Integer.parseInt(denom);
     }
-    public static String add(int whole1, int num1, int denom1, int whole2, int num2, int denom2){
-        
+    public static String add(int num1, int denom1, int num2, int denom2){
+        int denom = denom1*denom2;
+        num1 *= denom2;
+        num2 *= denom1;
+        int num = num1+num2;
+        String answer = num+"/"+denom;
+        return answer;
     }
-    public static String subtract(int whole1, int num1, int denom1, int whole2, int num2, int denom2){
-        
-    }
-    public static String multiply(int whole1, int num1, int denom1, int whole2, int num2, int denom2){
-        
-    }
-    public static String divide(int whole1, int num1, int denom1, int whole2, int num2, int denom2){
-        
+    public static String multiply(int num1, int denom1, int num2, int denom2){
+        int num = num1*num2;
+        int denom = denom1*denom2;
+        String answer = num+"/"+denom;
+        return answer;
     }
 }
