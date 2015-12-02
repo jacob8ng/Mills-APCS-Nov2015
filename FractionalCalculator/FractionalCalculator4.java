@@ -119,13 +119,31 @@ public class FractionalCalculator4{
         num1 *= denom2;
         num2 *= denom1;
         int num = num1+num2;
-        String answer = num+"/"+denom;
-        return answer;
+        return simplify(num, denom);
     }
     public static String multiply(int num1, int denom1, int num2, int denom2){
         int num = num1*num2;
         int denom = denom1*denom2;
-        String answer = num+"/"+denom;
-        return answer;
+        return simplify(num, denom);
+    }
+    public static String simplify(int num, int denom){
+        int whole = num/denom;
+        num %= denom;
+        int i;
+        i = denom;
+        while(num%i != 0 || denom%i != 0){
+            i--;
+        }
+        num /= i;
+        denom /= i;
+        if(whole==0){
+            return num+"/"+denom;
+        }else if(num==0){
+            return Integer.toString(whole);
+        }else if(num==0 && denom==1){
+            return "0";
+        }else{
+            return whole+"_"+num+"/"+denom;
+        }
     }
 }
