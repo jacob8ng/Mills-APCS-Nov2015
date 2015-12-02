@@ -136,12 +136,12 @@ public class FractionalCalculator4{
         }
         num /= i;
         denom /= i;
-        if(whole==0){
+        if(whole==0 && num==0 && denom==1){
+            return "0";
+        }else if(whole==0){
             return num+"/"+denom;
         }else if(num==0){
             return Integer.toString(whole);
-        }else if(num==0 && denom==1){
-            return "0";
         }else{
             return whole+"_"+num+"/"+denom;
         }
