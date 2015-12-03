@@ -143,7 +143,7 @@ public class FractionalCalculator4{
         }else if(num==0){
             return Integer.toString(whole);
         }else{
-            return whole+"_"+num+"/"+denom;
+            return whole+"_"+Math.abs(num)+"/"+denom;
         }
     }
 }
