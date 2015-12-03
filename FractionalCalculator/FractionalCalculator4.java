@@ -93,8 +93,18 @@ public class FractionalCalculator4{
         int whole2 = w(operand2whole);
         int num2 = n(operand2num);
         int denom2 = d(operand2denom);
-        int numerator1 = (whole1*denom1)+num1;
-        int numerator2 = (whole2*denom2)+num2;
+        int numerator1;
+        int numerator2;
+        if(whole1>=0){
+            numerator1 = (whole1*denom1)+num1;
+        }else{
+            numerator1 = (whole1*denom1)-num1;
+        }
+        if(whole2>=0){
+            numerator2 = (whole2*denom2)+num2;
+        }else{
+            numerator2 = (whole2*denom2)-num2;
+        }
         if(operator.equals("+")){
             return add(numerator1, denom1, numerator2, denom2);
         }else if(operator.equals("-")){
@@ -130,12 +140,12 @@ public class FractionalCalculator4{
         int whole = num/denom;
         num %= denom;
         int i;
-        i = denom;
+        i = Math.abs(denom);
         while(num%i != 0 || denom%i != 0){
             i--;
         }
-        num /= i;
-        denom /= i;
+        num/=i;
+        denom/=i;
         if(whole==0 && num==0 && denom==1){
             return "0";
         }else if(whole==0){
