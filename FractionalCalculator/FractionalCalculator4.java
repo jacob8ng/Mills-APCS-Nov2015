@@ -144,8 +144,13 @@ public class FractionalCalculator4{
         while(num%i != 0 || denom%i != 0){
             i--;
         }
-        num/=i;
-        denom/=i;
+        if((num<0 && denom<0) || denom<0){
+            num/=-i;
+            denom/=-i;
+        }else{
+            num/=i;
+            denom/=i;
+        }
         if(whole==0 && num==0 && denom==1){
             return "0";
         }else if(whole==0){
